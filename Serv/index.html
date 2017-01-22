@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatBot WMI</title>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qwest/4.4.5/qwest.min.js"></script>
+</head>
+<body>
+    <h1 id="demo">Click on page to speek</h1>
+
+    
+
+
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+<script>
+        var recognition = new webkitSpeechRecognition();
+
+        recognition.addEventListener("result", function(event){
+            var sentence = event.results[0][0].transcript;
+            console.log('Listeer:'+sentence)
+			
+			qwest.get(`/api/answer/${sentence.toString()}`, null, { cache:true })
+            .then(function(xhr, response) {
+                //alert(response);
+                console.log('qwest: '+response)
+                responsiveVoice.speak(response,"Polish Female");
+        
+            });
+        });
+
+
+        recognition.addEventListener("speechend", function(event){      
+            recognition.stop();
+        });
+
+        document.addEventListener("click", function(){
+            recognition.start();
+        });
+
+
+
+    </script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+</body>
+</html>

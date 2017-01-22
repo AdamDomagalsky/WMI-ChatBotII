@@ -1,0 +1,100 @@
+! version = 2.0
+! global debug = false
+
+//Full info
++ [*] [dane] (kontakt|info|kontaktowe) [do] [@lvls] * *
+- <call>fullInfo <star1> <star2></call> {@ correct}
+
++ (@lvls) *
+- <call>fullInfo <star2> <star2></call> {@ correct}
+
+//WHERE
++ (where|gdzie) (is|jest|znajde) [@lvls] * *
+- <call>whereis <star2> <star4></call> {@ correct}
+
++ (where|gdzie) (is|jest|znajde) [@lvls] *
+- <call>whereis <star1> <star3></call> {@ correct}
+
++ (poszukuje|szukam) [pokoju|gabinetu] [@lvls] * *
+- <call>whereis <star2> <star3></call> {@ correct}
+
++ (poszukuje|szukam) [pokoju|gabinetu] [@lvls] *
+- <call>whereis <star1> <star2></call> {@ correct}
+//WHEN
++ [*] (dyzur|konsultacje) [@lvls] * *
+- <call>when <star2> <star3></call> {@ correct}
+
++ [*] (dyzur|konsultacje) [@lvls] *
+- <call>when <star1> <star2></call> {@ correct}
+
++ [*] (godzinach|godziny [dyzuru|konsultacji]) [*] [@lvls] * *
+- <call>when <star2> <star3></call> {@ correct}
+
++ [*] (godzinach|godziny [dyzuru|konsultacji]) [*] [@lvls] *
+- <call>when <star1> <star2></call> {@ correct}
+
+//E-Mail a-dress
++ [*] (e-mail|mail|email|mejl|mailowy|mejlowy|skrzynka [pocztowa|odbiorcza]) [do] [@lvls] * *
+- <call>mail <star2> <star3></call> {@ correct}
+
++ [*] (e-mail|mail|email|mejl|mailowy|mejlowy|skrzynka [pocztowa|odbiorcza]) [do] [@lvls] *
+- <call>mail <star2> <star2></call> {@ correct}
+
+
+//Phone numba
++ [*] numer [kontaktowy|telefonu] [do] [@lvls] * *
+- <call>phone <star1> <star2></call> {@ correct}
+
++ [*] numer [kontaktowy|telefonu] [do] [@lvls] *
+- <call>phone <star1> <star2></call> {@ correct}
+
+//Fackulty
++ [*] skad jest [@lvls] * *
+- <call>faculty <star1> <star2></call> {@ correct}
+
++ [*] skad jest [@lvls] *
+- <call>faculty <star1> <star1></call> {@ correct}
+
+//Website ?
++ [*] [@lvls] * * (posiada|ma) [*] [internetowa]
+- <call>webpage <star1> <star2></call> {@ correct}
+
++ [*] [@lvls] * (posiada|ma) [*] [internetowa]
+- <call>webpage <star1> <star2></call> {@ correct}
+
++ strona [internetowa] [do] [@lvls] * *
+- <call>webpage <star1> <star2></call> {@ correct}
+
+//allStaff
++ [*] (pracownicy|pracownikow) [*] (zaklad|zakladu|zakladzie) *
+- <star3> <call>facultyStaff <star3></call>
+
+//whoInRoom
++ [*] (znajde|siedzi|znajduje|urzeduje) [*] (pokoju|gabinecie|pomieszczeniu) *
+- <call>whoInRoom <star3> <star</call>
+
++ pokoj *
+- <call>whoInRoom <star1></call>
+
+
++ correct
+- {random}Czy tego szukales?|Dobrze trafilem?{/random}
+
++ [*] [niestety|nie stety] nie [*]
+- ahhh... {random}Przepraszam, sproboj jeszcze raz zadac mi pytanie ;(|sformułuj zdanie w inny sposób{/random}
+
++ [*] (tak|yhy|nom|oczywiscie|pewnie) [*]
+- Ciesze sie, ze moglem Ci pomoc
+- Super!
+- uFFF, nareszcie udalo mi sie komus pomoc
+
++ <reply>
+- ale z ciebie malpa
+
++ *
+- {random}No espanol, Amigo|Nie rozumiem{/random}
+
++ test
+- <call>search graliński name faculty,position,lvl,name,room,phone,mail,website,when</call>
+//- to jest test 
+

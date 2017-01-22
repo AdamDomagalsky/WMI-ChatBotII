@@ -1,0 +1,62 @@
+! version = 2.0
+
+> object fullInfo python
+	from infos import search
+	search(args[1])
+< object
+
+> object whereis python
+	from infos import search
+	search(args[1],'name',['name','room'])
+< object
+
+> object when python
+	from infos import search
+	search(args[1],'name',['name','when'])
+< object
+
+> object mail python
+	from infos import search
+	search(args[1],'name',['name','mail'])
+< object
+
+> object phone python
+	from infos import search
+	search(args[1],'name',['name','phone'])
+< object
+
+> object faculty python
+	from infos import search
+	search(args[1],'name',['name','faculty'])
+< object
+
+> object webpage python
+	from infos import search
+	search(args[1],'name',['name','website'])
+< object
+
+> object facultyStaff python
+	from infos import search
+	search(args[0],'faculty',['name','room'])
+< object
+
+> object whoInRoom python
+	from infos import search
+	search(args[0],'room',['name'])
+< object
+
+
+
+
+
+
+
+
+
+
+
+> object search python
+	from infos import search
+	search()
+< object
+
