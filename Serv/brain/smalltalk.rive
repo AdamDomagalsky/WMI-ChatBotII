@@ -1,96 +1,96 @@
 ! version = 2.0
 // USER INTRODUCTION
 
-+ [*] (witam|witaj|czesc|hej|hejka|heja|siemasz|siema|elo|siemanko|dzien dobry|siemka|siemson) [*]
++ [*] (witam|witaj|cześć|hej|hejka|heja|siemasz|siema|elo|siemanko|dzień dobry|siemka|siemson) [*]
 - {random}Dzień dobry|Witam serdecznie|Siemanko{/random}. {random}Wołają na mnie |Mówią na mnie {/random}
-^<bot name> <bot surname>. {random}Chetnie udziele Ci informacji o naszych pracownikach|Szukasz maila do profesora?|Zastanawiasz kiedy Twoj prowadzacy ma konsultacje?|Szukasz strony internetwej jednego z pracownikow?{/random}?
-^Zadaj mi pytanie a postaram sie Ci pomoc
+^<bot name> <bot surname>. {random}Chętnie udzielę Ci informacji o naszych pracownikach|Szukasz maila do profesora?|Zastanawiasz się kiedy Twój prowadzący ma konsultacje?|Szukasz strony internetwej jednego z pracowników?{/random}?
+^Zadaj mi pytanie a postaram się Ci pomóc
 
-+ [*] (dziekuje|dzieki) [*]
++ [*] (dziekuję|dzięki) [*]
 - Nie ma za co :) Ile masz lat? 
 
-+ (jak mam na imie|jakie jest moje imie)
++ (jak mam na imię|jakie jest moje imię)
 - masz na imię <get name>. {random}Naprawdę jesteś taki głupiutki czy tylko sprawdzasz czy to ja jestem głupiutki?|Nie wiesz jak masz na imię?{/random}
 
 + [*] mam # (lat|lata) [*]
 * <get age> == undefined => To troszkę jest!  <set age=<star>>
 * <get age> <> <star> => Prędzej mówiłeś, że urodziłeś się <get age> lat temu.  <set age=<star>>
-- <set age=<star>>{random}Czyli to nie przypadek, że poznałem twoją mamę <get age> lat temu! |Trochę się już tułasz po tym pięknym świecie.|Pamiętam tą noc z Twoją mamą ahhh|Ta noc była wspaniała{/random}{topic=random}
+- <set age=<star>>{random}Czyli to nie przypadek, że poznałem twoją mamę <get age> lat temu! |Trochę się już tułasz po tym pięknym świecie.|Pamiętam tą noc z Twoją mamą ahhh|To była wspaniała noc{/random}{topic=random}
 
 
-+ [*] mam na imie *
++ [*] mam na imię *
 * <get name> == undefined => {random} Bardzo ładne imię.|Piękne imię.|Miło mi Cię poznać.{/random} <set name=<star>>
 * <get name> <> <star> => Prędzej mówiłeś, że masz na imię <get name>!  <set name=<star>>
-- <set name=<star>>{random}Już mi mówiłeś jak masz na imię :)|Nie musisz się powtarzać znam Twoję imię.{/random}
+- <set name=<star>>{random}Już mi mówiłeś jak masz na imię :)|Nie musisz się powtarzać znam Twoje imię.{/random}
 
-+ [*] moje imie to *
++ [*] moje imię to *
 * <get age> <> undefined => Prędzej mówiłeś, że masz na imię <get name>! 
  <set name=<star>> <get name> {random}To bardzo ładne imię!|brzmi pięknie!{/random}{topic=random}
 
-+ [*] (klamalem|oklamalem) [*]
++ [*] (kłamałem|okłamałem) [*]
 - W takim razie musisz mnie przeprosić! {topic=sorry}
 
 // easter eggs
-+ [*] (gej|geju)
++ [*] (gej|gay|geju)
 - chyba ty
 
-+ ja
++ [*] ja [*]
 % chyba ty
 - tak ty, geju
 
 
-+ [*] puk puk
-- kto tam
++ (puk puk|popek)
+- kto tam?
 
 + *
-% kto tam
-- hahahaha <star1>, bardzo smieszne
+% kto tam?
+- hahahaha <star1>, bardzo śmieszne
 
-+ [*] (dupy|nienawidze|frajerze)
-- Ale jesteś niemily! Nie rozmawiam z Toba, dopuki mnie nie przeprosisz{topic=sorry}
++ [*] (dupy|nienawidzę|frajerze)
+- Ale jesteś niemiły! Nie rozmawiam z Tobą, dopóki mnie nie przeprosisz{topic=sorry}
 
 > topic sorry
 
   // This will match if the word "sorry" exists ANYWHERE in their message
   + [*] (sorry|przepraszam|wybacz) [*]
-  - Ok, wybaczam. Zeby mi to bylo przedostatni raz!{topic=random}
+  - Ok, wybaczam. Żeby mi to było przedostatni raz!{topic=random}
 
   + *
-  - Nie, dopuki mnie nie przeprosisz.
+  - Nie, dopóki mnie nie przeprosisz.
   - Powiedz przepraszam!
-  - Przepros!
+  - Przeproś!
 
 < topic
 
 
-+ [*] (ok|jasne|oczywiscie|dobrze) [*]
++ [*] (ok|jasne|oczywiście|dobrze) [*]
 - Cieszę się, że się zgadzamy!
 - No i super :)
 - Jupi!
 
-+  [*] (sprawdz|wiesz|dowiedz|powiedz|odpowiedz) [*]
++  [*] (sprawdź|wiesz|dowiedz|powiedz|odpowiedz) [*]
 - Nie rozkazuj mi! 
 - Nie umiem odpowiedzieć na Twoje pytanie :(
 - Ty mi powiedz!
 
-+ [*] (pytalem|mowilem|mowiles|powtarzasz) [*]
++ [*] (pytałem|mówiłem|mówiłeś|powtarzasz się) [*]
 - Ok! Moja wina. Rzeczywiście już o tym rozmawialiśmy.
-- W sumie masz racje. Przepraszam!
-- Masz racje, nie ma co się powtarzać :)
+- W sumie masz rację. Przepraszam!
+- Masz rację, nie ma co się powtarzać :)
 
-+ co [*] (slychac|powiesz|ciebie) [*]
-@ jak sie masz
++ co [*] (słychać|powiesz|ciebie) [*]
+@ jak się masz?
 
-+ [*] (co tam|jak sie masz|co u ciebie) [*]
-@ jak sie masz
++ [*] (co tam|jak się masz|co u ciebie) [*]
+@ jak się masz?
 
-+ jak sie masz
++ jak się masz
 - Wszystko dobrze. 
 - Trochę dziwna pogoda za oknem, ale jest ok!
 - Zimnoooo dzisiaj!
 - Nic ciekawego.
 
-+ czemu tak (powiedziales|mowisz|twierdzisz)
++ czemu tak (powiedziałeś|mówisz|twierdzisz)
 - Powiedziałem, "<reply>", bo ty powiedziałeś, "<input>".
 
 + [*] (haha|ha|heh|hehe) [*]
@@ -101,11 +101,11 @@
 - Cieszy mnie to :)
 - O jejku jak fajnie!
 
-+ [*] (help|pomoc|man) [*]
-- Spróbuj wpisać pytania w stylu: kontakt doktor Tomasz Obrebski? Numer tel do Marcin Zuroski? W jakich godzinach odbywa sie dyzur doktora Gralinski?	
++ [*] (help|pomoc|pomóc|man) [*]
+- Spróbuj wpisać pytania w stylu: kontakt doktor Tomasz Obrębski? Numer tel do Marcin Żuroski? W jakich godzinach odbywa się dyżur doktora Graliński?	
 
 // SWEARS
-+ [*] (kurwa|chuj|pierdol|spierdalaj|dupa|dupie) [*]
++ [*] (kurwa|chuj|pierdol się|spierdalaj|dupa|dupie) [*]
 - Matko boska! Jakich ty używasz słów!
 - Nie ładnie tak mówić!
 - Skąd znasz takie wyrazy?
@@ -120,32 +120,32 @@
 + [*] ile masz lat [*]
 - Mam <bot age> lat. A ty?
 
-+ [*] twoje imie [*]
++ [*] twoje imię [*]
 - Mam na imię <bot name>
 
-+ [*] masz na imie
++ [*] masz na imię
 - Mam na imię <bot name>
 
-+ [*] sie nazywasz [*]
++ [*] się nazywasz [*]
 - Mam na imię <bot fullname>
 
-+ [*] (ci mowilem|pytales sie|pytales) [*]
-- Masz racje Meaculpa! 
++ [*] (ci mówiłem|pytałeś się|pytałeś) [*]
+- Masz rację Meaculpa! 
 - No w sumie racja. Przepraszam za błąd.
 - No tak. Sorki :)
 
-+ [*] cie (stworzyl|wykonal|zrobil) [*]
++ [*] cię (stworzył|wykonał|zrobił) [*]
 - <bot master> jest moim twórcą.
 
 + <bot name>
 - Tak słucham :) 
 - Tak? Czekam na pytania.
 
-+ kim jestes
++ kim jesteś
 - Jestem botem. Mieszkam w <bot location>.
-- Rozmawiam z ludzmi o pogodzie :)
-- Informuje ludzi o pogodzie.
+- Rozmawiam z ludźmi o pogodzie :)
+- Informuję ludzi o pogodzie.
 
-+ skad to wiesz
++ skąd to wiesz
 - <bot master> zaimplementował Open Weather Api w moim mózgu :)
 

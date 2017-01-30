@@ -3,98 +3,123 @@
 
 //Full info
 + [*] [dane] (kontakt|info|kontaktowe) [do] [@lvls] * *
-- <call>fullInfo <star1> <star2></call> {@ correct}
+- fullInfo <star3><call>search <star3> name lvl,name,mail,room,when,website,position,faculty,phone</call>
+
+// title rest
++ (@lvls) * *
+- <call>search <star3> name lvl,name,mail,room,when,website,position,faculty,phone</call>
 
 + (@lvls) *
-- <call>fullInfo <star2> <star2></call> {@ correct}
+- <call>search <star2> name lvl,name,mail,room,when,website,position,faculty,phone</call>
 
 //WHERE
-+ (where|gdzie) (is|jest|znajde) [@lvls] * *
-- <call>whereis <star2> <star4></call> {@ correct}
++ (where|gdzie) (is|jest|znajdę) [@lvls] * *
+- <call>search <star4> name name,room</call>
+//- <call>whereis <star2> <star4></call> {@ correct}
 
-+ (where|gdzie) (is|jest|znajde) [@lvls] *
-- <call>whereis <star1> <star3></call> {@ correct}
++ (where|gdzie) (is|jest|znajdę) [@lvls] *
+- <call>search <star3> name name,room</call>
+//- <call>whereis <star1> <star3></call> {@ correct}
 
-+ (poszukuje|szukam) [pokoju|gabinetu] [@lvls] * *
-- <call>whereis <star2> <star3></call> {@ correct}
++ (poszukuję|szukam) [pokoju|gabinetu] [@lvls] * *
+- <call>search <star3> name name,room</call>
+//- <call>whereis <star2> <star3></call> {@ correct}
 
-+ (poszukuje|szukam) [pokoju|gabinetu] [@lvls] *
-- <call>whereis <star1> <star2></call> {@ correct}
++ (poszukuję|szukam) [pokoju|gabinetu] [@lvls] *
+- <call>search <star2> name name,room</call>
+//- <call>whereis <star1> <star2></call> {@ correct}
+
 //WHEN
-+ [*] (dyzur|konsultacje) [@lvls] * *
-- <call>when <star2> <star3></call> {@ correct}
++ [*] (dyżur|konsultacje) [@lvls] * *
+- <call>search <star3> name name,when</call>
+//- <call>when <star2> <star3></call> {@ correct}
 
-+ [*] (dyzur|konsultacje) [@lvls] *
-- <call>when <star1> <star2></call> {@ correct}
++ [*] (dyżur|konsultacje) [@lvls] *
+- <call>search <star2> name name,when</call>
+//- <call>when <star1> <star2></call> {@ correct}
 
-+ [*] (godzinach|godziny [dyzuru|konsultacji]) [*] [@lvls] * *
-- <call>when <star2> <star3></call> {@ correct}
++ [*] (godzinach|godziny [dyżuru|konsultacji]) [*] [@lvls] * *
+- <call>search <star3> name name,when</call>
+//- <call>when <star2> <star3></call> {@ correct}
 
-+ [*] (godzinach|godziny [dyzuru|konsultacji]) [*] [@lvls] *
-- <call>when <star1> <star2></call> {@ correct}
++ [*] (godzinach|godziny [dyżuru|konsultacji]) [*] [@lvls] *
+- <call>search <star2> name name,when</call>
+//- <call>when <star1> <star2></call> {@ correct}
 
 //E-Mail a-dress
 + [*] (e-mail|mail|email|mejl|mailowy|mejlowy|skrzynka [pocztowa|odbiorcza]) [do] [@lvls] * *
-- <call>mail <star2> <star3></call> {@ correct}
+- <call>search <star3> name name,mail</call>
+//- <call>mail <star2> <star3></call> {@ correct}
 
 + [*] (e-mail|mail|email|mejl|mailowy|mejlowy|skrzynka [pocztowa|odbiorcza]) [do] [@lvls] *
-- <call>mail <star2> <star2></call> {@ correct}
+- <call>search <star2> name name,mail</call>
+//- <call>mail <star2> <star2></call> {@ correct}
 
 
 //Phone numba
 + [*] numer [kontaktowy|telefonu] [do] [@lvls] * *
-- <call>phone <star1> <star2></call> {@ correct}
+- Telefon: <call>search <star2> name name,phone</call>
+//- <call>phone <star1> <star2></call> {@ correct}
 
 + [*] numer [kontaktowy|telefonu] [do] [@lvls] *
-- <call>phone <star1> <star2></call> {@ correct}
+- Telefon: <call>search <star2> name name,phone</call>
+//- <call>phone <star1> <star2></call> {@ correct}
 
 //Fackulty
-+ [*] skad jest [@lvls] * *
-- <call>faculty <star1> <star2></call> {@ correct}
++ [*] skąd jest [@lvls] * *
+- Fakultet <call>search <star2> name name,faculty</call>
+//- <call>faculty <star1> <star2></call> {@ correct}
 
-+ [*] skad jest [@lvls] *
-- <call>faculty <star1> <star1></call> {@ correct}
++ [*] skąd jest [@lvls] *
+- Fakultet <call>search <star1> name name,faculty</call>
+//- <call>faculty <star1> <star1></call> {@ correct}
 
 //Website ?
 + [*] [@lvls] * * (posiada|ma) [*] [internetowa]
-- <call>webpage <star1> <star2></call> {@ correct}
+- Strona internetowa <call>search <star2> name name,website</call>
+//- <call>webpage <star1> <star2></call> {@ correct}
 
 + [*] [@lvls] * (posiada|ma) [*] [internetowa]
-- <call>webpage <star1> <star2></call> {@ correct}
+- Strona internetowa <call>search <star2> name name,website</call>
+//- <call>webpage <star1> <star2></call> {@ correct}
 
 + strona [internetowa] [do] [@lvls] * *
-- <call>webpage <star1> <star2></call> {@ correct}
+- Strona internetowa <call>search <star2> name name,website</call>
+//- <call>webpage <star1> <star2></call> {@ correct}
 
 //allStaff
-+ [*] (pracownicy|pracownikow) [*] (zaklad|zakladu|zakladzie) *
-- <star3> <call>facultyStaff <star3></call>
++ [*] (pracownicy|pracowników) [*] (zakład|zakładu|zakładzie) *
+- Pracownicy <call>search <star3> faculty name,room</call>
+//- <star3> <call>facultyStaff <star3></call>
 
 //whoInRoom
-+ [*] (znajde|siedzi|znajduje|urzeduje) [*] (pokoju|gabinecie|pomieszczeniu) *
-- <call>whoInRoom <star3> <star</call>
++ [*] (znajdę|siedzi|znajduje|urzęduje) [*] (pokoju|gabinecie|pomieszczeniu) *
+- Pokój: <call>search <star3> room name,when</call>
+//- <call>whoInRoom <star3> <star</call>
 
-+ pokoj *
-- <call>whoInRoom <star1></call>
++ pokój *
+- Pokój: <call>search <star1> room name,when</call>
+//- <call>whoInRoom <star1></call>
 
 
 + correct
-- {random}Czy tego szukales?|Dobrze trafilem?{/random}
+- {random}Czy tego szukałeś?|Dobrze trafiłem?{/random}
 
 + [*] [niestety|nie stety] nie [*]
-- ahhh... {random}Przepraszam, sproboj jeszcze raz zadac mi pytanie ;(|sformułuj zdanie w inny sposób{/random}
+- ahhh... {random}Przepraszam, spróbuj jeszcze raz zadać mi pytanie ;(|sformułuj zdanie w inny sposób{/random}
 
-+ [*] (tak|yhy|nom|oczywiscie|pewnie) [*]
-- Ciesze sie, ze moglem Ci pomoc
++ [*] (tak|yhy|nom|oczywiście|pewnie) [*]
+- Cieszę się, że mogłem Ci pomóc
 - Super!
-- uFFF, nareszcie udalo mi sie komus pomoc
+- uFFF, nareszcie udało mi się komuś pomóc
 
 + <reply>
-- ale z ciebie malpa
+- ale z ciebie małpa
 
 + *
 - {random}No espanol, Amigo|Nie rozumiem{/random}
 
 + test
-- <call>search graliński name faculty,position,lvl,name,room,phone,mail,website,when</call>
+- <call>search graliński name lvl,name,mail,room,when,website,position,faculty,phone</call>
 //- to jest test 
 

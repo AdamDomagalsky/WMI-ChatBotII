@@ -27,20 +27,6 @@ app.get("/api/answer/:question", function(req, res){
 	console.log('Question: '+ question)
 	//console.log(sendMessage(question));
 	console.log(bot.reply('bot', question, this));
-/*
-	try {
-    	bot.replyAsync("bot", question, this).then(function(reply) {
-    	console.log('Async: '+ reply)
-		res.send(reply);
-    	});
-	} catch(e) {
-		console.log('WielBłąd /api/answer/:question')
-		throw new Error(e);
-	}
-*/
-
-
-
 
 	bot.replyAsync("bot", question).then(function(reply) {
 			res.send(reply)
@@ -48,21 +34,6 @@ app.get("/api/answer/:question", function(req, res){
 			console.log('WielBłąd /api/answer/:question')
 			throw new Error(e);
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
@@ -87,14 +58,7 @@ function loading_done (batch_num) {
 
     // Now the replies must be sorted!
     bot.sortReplies();
-/*
-    // And now we're free to get a reply from the brain!
-    var reply = bot.replyAsync("local-user", "test");
-    console.log("The bot says: " + reply);*/
-
-
-
- bot.replyAsync("local-user", "test", this).then(function(reply) {
+ 	bot.replyAsync("local-user", "test", this).then(function(reply) {
    console.log("Bot> ", reply);
 });
 }
@@ -113,12 +77,11 @@ bot.setSubroutine("search",function(rs,args){
 		//console.log("Args: \n\t "+typeof(key)+'\t'+key+"\n\t "+typeof(value)+'\t'+value+"\n\t "+typeof(filters)+'\t'+filters)
 
 		var obj;
-		var speak;
+		var speak='Przeprasza, nie udało mi się nic znaleść';
 		fs.readFile('./wmiStaff.json', 'utf8',	function (err, data,s) {
-			var speak = ''
 			if (err) throw err;
 			dataBase = JSON.parse(data);
-
+			speak=''
 			dataBase.forEach(function(row){
 		//	console.log('Halooooooooooo'+row[key])
 				if (row[key]!='undefined' && row[key].toLowerCase().replace('-','').includes(value.replace('-',''))){
